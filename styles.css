@@ -126,8 +126,7 @@ h4 {
 }
 
 .site-header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 100;
   backdrop-filter: var(--glass-blur) saturate(180%);
   background: rgba(15, 23, 41, 0.85);
@@ -1004,27 +1003,11 @@ select:focus-visible {
   overflow: hidden;
 }
 
-.pricing-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  opacity: 0;
-  transition: opacity var(--transition);
-}
-
 .pricing-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-lg);
   border-color: var(--border-strong);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
-}
-
-.pricing-card:hover::before {
-  opacity: 1;
 }
 
 .feature-grid.compact {
@@ -1334,9 +1317,9 @@ select:focus-visible {
 
 .pricing-card {
   position: relative;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1.25rem;
-  align-content: start;
 }
 
 .pricing-card h3 {
@@ -1345,11 +1328,7 @@ select:focus-visible {
 }
 
 .pricing-card .btn {
-  margin-top: 0.5rem;
-}
-
-.pricing-card.featured .btn {
-  margin-top: 0.75rem;
+  margin-top: auto;
 }
 
 .pricing-card.featured {
@@ -1658,9 +1637,6 @@ select:focus-visible {
     gap: 0;
   }
 
-  .site-header {
-    position: sticky;
-  }
 
   .header-inner {
     padding: 1rem 0;
@@ -1805,6 +1781,251 @@ select:focus-visible {
 
   .workflow-number {
     font-size: 1.5rem;
+  }
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: var(--glass-blur) saturate(180%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9) translateY(20px);
+  transition: transform var(--transition-slow);
+  z-index: 10001;
+}
+
+.modal.active .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  opacity: 0.7;
+}
+
+.modal-close:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  margin-bottom: 2rem;
+}
+
+.modal-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-item {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition);
+}
+
+.contact-item:hover {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+  transform: translateX(4px);
+}
+
+.contact-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.contact-email {
+  font-size: 1rem;
+  color: var(--accent);
+  text-decoration: none;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-email:hover {
+  color: var(--accent-2);
+  transform: translateX(4px);
+}
+
+.contact-email::after {
+  content: '→';
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.contact-email:hover::after {
+  opacity: 1;
+}
+
+.modal-text-content {
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.modal-text-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.modal-text-content h3:first-child {
+  margin-top: 0;
+}
+
+.modal-text-content h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-text-content p {
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+.modal-text-content p:last-child {
+  margin-bottom: 0;
+}
+
+.modal-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal-list li {
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.modal-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.modal-text-content strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.support-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.support-section:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.support-section h4 {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 2rem 1.5rem;
+    max-width: 95%;
+  }
+
+  .modal-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .contact-item {
+    padding: 1.25rem;
+  }
+
+  .modal-text-content h3 {
+    font-size: 1.125rem;
+  }
+
+  .modal-text-content h4 {
+    font-size: 1rem;
   }
 }
 

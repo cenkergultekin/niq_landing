@@ -151,5 +151,79 @@ nav.addEventListener('keydown', (e) => {
   }
 });
 
+// Modal Management
+const modals = {
+  'contact-link': 'contact-modal',
+  'documentation-link': 'documentation-modal',
+  'support-link': 'support-modal',
+  'privacy-link': 'privacy-modal',
+  'terms-link': 'terms-modal'
+};
+
+let activeModal = null;
+
+const openModal = (modalId) => {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    // Close any active modal first
+    if (activeModal) {
+      closeModal(activeModal);
+    }
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    modal.setAttribute('aria-hidden', 'false');
+    activeModal = modal;
+  }
+};
+
+const closeModal = (modal) => {
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    modal.setAttribute('aria-hidden', 'true');
+    if (activeModal === modal) {
+      activeModal = null;
+    }
+  }
+};
+
+// Initialize modals
+Object.entries(modals).forEach(([linkId, modalId]) => {
+  const link = document.getElementById(linkId);
+  const modal = document.getElementById(modalId);
+  
+  if (link && modal) {
+    const modalOverlay = modal.querySelector('.modal-overlay');
+    const modalClose = modal.querySelector('.modal-close');
+    
+    // Open modal on link click
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(modalId);
+    });
+    
+    // Close modal on close button click
+    if (modalClose) {
+      modalClose.addEventListener('click', () => {
+        closeModal(modal);
+      });
+    }
+    
+    // Close modal on overlay click
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', () => {
+        closeModal(modal);
+      });
+    }
+  }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && activeModal) {
+    closeModal(activeModal);
+  }
+});
+
 console.log('🚀 NIQ Desktop - Landing page loaded successfully');
 

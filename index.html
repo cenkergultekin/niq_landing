@@ -36,7 +36,7 @@
           <h1>Doğal dille verinizi yönetin, sonuçları anında görün</h1>
           <p class="lede">NIQ Desktop, teknik bariyer olmadan veritabanınızla konuşmanızı sağlar; doğal dildeki talepleri güvenli sorgulara dönüştürür ve sonuçları anlaşılır görünümlere taşır.</p>
           <div class="hero-cta">
-            <a class="btn primary large" href="https://github.com/cenkergultekin/berkay-sql-project/releases/tag/v1.1" aria-label="Windows için NIQ'u indirin" target="_blank" rel="noopener noreferrer">
+            <a class="btn primary large" href="https://github.com/cenkergultekin/berkay-sql-project/releases/tag/v1.2" aria-label="Windows için NIQ'u indirin" target="_blank" rel="noopener noreferrer">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
               Windows İçin İndir
             </a>
@@ -173,6 +173,15 @@
               <div class="feature-content">
                 <h3>Güvenlik ve Kayıt</h3>
                 <p>Rol bazlı erişim, loglama ve denetim iziyle iç denetime hazır.</p>
+              </div>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+              </div>
+              <div class="feature-content">
+                <h3>Zamanlanmış Sorgular</h3>
+                <p>Rutin raporlarınızı otomatik çalıştırın ve sonuçları zamanında alın.</p>
               </div>
             </article>
           </div>
@@ -320,33 +329,34 @@
         </div>
         <div class="pricing-grid">
           <article class="pricing-card">
-            <h3>Başlangıç</h3>
-            <div class="price">₺ —</div>
+            <h3>Starter</h3>
+            <div class="price">$0.99</div>
             <ul class="pricing-list">
-              <li>Özellikler yakında</li>
-              <li>Örnek kapasite: —</li>
-              <li>Destek: —</li>
+              <li>1.000 sorgu hakkı</li>
+              <li>Tek zeka katmanı</li>
             </ul>
             <button type="button" class="btn ghost block">Talep et</button>
           </article>
           <article class="pricing-card featured">
             <div class="badge">Önerilen</div>
-            <h3>Büyüme</h3>
-            <div class="price">₺ —</div>
+            <h3>Plus</h3>
+            <div class="price">$4.99</div>
             <ul class="pricing-list">
-              <li>Özellikler yakında</li>
-              <li>Örnek kapasite: —</li>
-              <li>Destek: —</li>
+              <li>5.000 sorgu hakkı</li>
+              <li>Çift katlı zeka katmanı</li>
+              <li>Sorguları grafiklerle gösterme</li>
             </ul>
             <button type="button" class="btn primary block">Talep et</button>
           </article>
           <article class="pricing-card">
-            <h3>Kurumsal</h3>
-            <div class="price">₺ —</div>
+            <h3>Pro</h3>
+            <div class="price">$9.99</div>
             <ul class="pricing-list">
-              <li>Özellikler yakında</li>
-              <li>Örnek kapasite: —</li>
-              <li>Destek: —</li>
+              <li>10.000 sorgu hakkı</li>
+              <li>Yüksek zeka katmanı</li>
+              <li>Sorguları grafiklerle gösterme</li>
+              <li>Zamanlanmış sorgu</li>
+              <li>Öncelikli destek</li>
             </ul>
             <button type="button" class="btn ghost block">Talep et</button>
           </article>
@@ -373,17 +383,17 @@
             <div class="footer-column">
               <h4>Kaynaklar</h4>
               <ul class="footer-links">
-                <li><a href="https://github.com/cenkergultekin/berkay-sql-project/releases/tag/v1.1" target="_blank" rel="noopener noreferrer">İndir</a></li>
-                <li><a href="#">Dokümantasyon</a></li>
-                <li><a href="#">Destek</a></li>
+                <li><a href="https://github.com/cenkergultekin/berkay-sql-project/releases/tag/v1.2" target="_blank" rel="noopener noreferrer">İndir</a></li>
+                <li><a href="#" id="documentation-link">Dokümantasyon</a></li>
+                <li><a href="#" id="support-link">Destek</a></li>
               </ul>
             </div>
             <div class="footer-column">
               <h4>Şirket</h4>
               <ul class="footer-links">
-                <li><a href="#">İletişim</a></li>
-                <li><a href="#">Gizlilik Politikası</a></li>
-                <li><a href="#">Kullanım Koşulları</a></li>
+                <li><a href="#" id="contact-link">İletişim</a></li>
+                <li><a href="#" id="privacy-link">Gizlilik Politikası</a></li>
+                <li><a href="#" id="terms-link">Kullanım Koşulları</a></li>
               </ul>
             </div>
           </div>
@@ -394,6 +404,204 @@
       </div>
     </footer>
   </main>
+
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="contact-modal-title">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Modal'ı kapat">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="modal-header">
+        <h2 id="contact-modal-title">NIQ Developers</h2>
+      </div>
+      <div class="modal-body">
+        <div class="contact-item">
+          <div class="contact-name">Cenker Gültekin</div>
+          <a href="mailto:cenkergultekin@niq.com" class="contact-email">cenkergultekin@niq.com</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-name">Berkay Demircanlı</div>
+          <a href="mailto:berkaydemircanli@niq.com" class="contact-email">berkaydemircanli@niq.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Documentation Modal -->
+  <div id="documentation-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="documentation-modal-title">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Modal'ı kapat">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="modal-header">
+        <h2 id="documentation-modal-title">Dokümantasyon</h2>
+      </div>
+      <div class="modal-body">
+        <div class="modal-text-content">
+          <h3>Başlangıç</h3>
+          <p>NIQ Desktop'u kullanmaya başlamak için aşağıdaki adımları takip edin:</p>
+          <ul class="modal-list">
+            <li>Uygulamayı indirin ve kurun</li>
+            <li>Veritabanı bağlantınızı yapılandırın</li>
+            <li>İlk sorgunuzu doğal dilde yazın</li>
+          </ul>
+          
+          <h3>Özellikler</h3>
+          <ul class="modal-list">
+            <li><strong>Doğal Dil İşleme:</strong> Türkçe ve İngilizce sorgu desteği</li>
+            <li><strong>Grafik Görselleştirme:</strong> Sonuçları görsel olarak analiz edin</li>
+            <li><strong>Zamanlanmış Sorgular:</strong> Rutin raporlarınızı otomatikleştirin</li>
+            <li><strong>Güvenlik:</strong> Rol bazlı erişim kontrolü ve denetim izi</li>
+          </ul>
+
+          <h3>API Dokümantasyonu</h3>
+          <p>Detaylı API dokümantasyonu için GitHub deposunu ziyaret edin veya geliştirici ekibiyle iletişime geçin.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Support Modal -->
+  <div id="support-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="support-modal-title">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Modal'ı kapat">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="modal-header">
+        <h2 id="support-modal-title">Destek</h2>
+      </div>
+      <div class="modal-body">
+        <div class="modal-text-content">
+          <h3>Yardıma mı ihtiyacınız var?</h3>
+          <p>NIQ Desktop ile ilgili sorularınız veya sorunlarınız için bizimle iletişime geçebilirsiniz.</p>
+          
+          <div class="support-section">
+            <h4>E-posta Desteği</h4>
+            <p>Teknik destek için e-posta gönderin:</p>
+            <a href="mailto:support@niq.com" class="contact-email">support@niq.com</a>
+          </div>
+
+          <div class="support-section">
+            <h4>Geliştirici Ekibi</h4>
+            <p>Doğrudan geliştirici ekibiyle iletişime geçin:</p>
+            <div class="contact-item">
+              <div class="contact-name">Cenker Gültekin</div>
+              <a href="mailto:cenkergultekin@niq.com" class="contact-email">cenkergultekin@niq.com</a>
+            </div>
+            <div class="contact-item">
+              <div class="contact-name">Berkay Demircanlı</div>
+              <a href="mailto:berkaydemircanli@niq.com" class="contact-email">berkaydemircanli@niq.com</a>
+            </div>
+          </div>
+
+          <div class="support-section">
+            <h4>Sık Sorulan Sorular</h4>
+            <p>Yaygın sorunlar ve çözümleri için dokümantasyonu inceleyin.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div id="privacy-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="privacy-modal-title">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Modal'ı kapat">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="modal-header">
+        <h2 id="privacy-modal-title">Gizlilik Politikası</h2>
+      </div>
+      <div class="modal-body">
+        <div class="modal-text-content">
+          <p><strong>Son Güncelleme:</strong> Aralık 2025</p>
+          
+          <h3>Veri Toplama</h3>
+          <p>NIQ Desktop, kullanıcı deneyimini iyileştirmek ve hizmet kalitesini artırmak için sınırlı veri toplar. Toplanan veriler şunları içerir:</p>
+          <ul class="modal-list">
+            <li>Uygulama kullanım istatistikleri</li>
+            <li>Hata raporları ve log kayıtları</li>
+            <li>Bağlantı bilgileri (yerel olarak saklanır)</li>
+          </ul>
+
+          <h3>Veri Güvenliği</h3>
+          <p>Veritabanı bağlantı bilgileriniz ve sorgu sonuçlarınız yerel cihazınızda saklanır. Hiçbir veri sunucularımıza gönderilmez veya üçüncü taraflarla paylaşılmaz.</p>
+
+          <h3>Loglama ve Denetim</h3>
+          <p>Güvenlik ve denetim amaçlı olarak, sorgu geçmişi ve kullanıcı aktiviteleri yerel olarak loglanır. Bu loglar yalnızca iç denetim amaçlı kullanılır.</p>
+
+          <h3>Çerezler</h3>
+          <p>NIQ Desktop, temel işlevsellik için gerekli çerezleri kullanır. Üçüncü taraf çerezler kullanılmamaktadır.</p>
+
+          <h3>Haklarınız</h3>
+          <p>Kişisel verilerinize erişim, düzeltme ve silme haklarınız bulunmaktadır. Bu haklarınızı kullanmak için bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms of Service Modal -->
+  <div id="terms-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="terms-modal-title">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Modal'ı kapat">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="modal-header">
+        <h2 id="terms-modal-title">Kullanım Koşulları</h2>
+      </div>
+      <div class="modal-body">
+        <div class="modal-text-content">
+          <p><strong>Son Güncelleme:</strong> Aralık 2025</p>
+          
+          <h3>Kabul ve Kullanım</h3>
+          <p>NIQ Desktop'u kullanarak, bu kullanım koşullarını kabul etmiş sayılırsınız. Uygulamayı yalnızca yasal amaçlar için kullanmalısınız.</p>
+
+          <h3>Lisans</h3>
+          <p>NIQ Desktop, lisanslı bir yazılımdır. Yazılımı kopyalama, dağıtma veya tersine mühendislik yapma hakkınız bulunmamaktadır.</p>
+
+          <h3>Sorumluluk Reddi</h3>
+          <p>NIQ Desktop, veritabanı sorgularınızın doğruluğunu garanti etmez. Sorgu sonuçlarını kullanmadan önce doğrulamak kullanıcının sorumluluğundadır.</p>
+
+          <h3>Kullanıcı Sorumlulukları</h3>
+          <ul class="modal-list">
+            <li>Veritabanı erişim bilgilerinizi güvenli tutmak</li>
+            <li>Yalnızca yetkili olduğunuz verilere erişmek</li>
+            <li>Uygulamayı kötüye kullanmamak</li>
+            <li>Yasalara ve kurumsal politikalarınıza uymak</li>
+          </ul>
+
+          <h3>Hizmet Kesintileri</h3>
+          <p>NIQ Desktop, bakım veya güncelleme amaçlı olarak geçici olarak kesintiye uğrayabilir. Bu durumlarda önceden bildirim yapılacaktır.</p>
+
+          <h3>Değişiklikler</h3>
+          <p>Bu kullanım koşulları, önceden haber vermeksizin değiştirilebilir. Değişiklikler uygulama içinde bildirilecektir.</p>
+
+          <h3>İletişim</h3>
+          <p>Kullanım koşulları hakkında sorularınız için bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
