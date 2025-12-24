@@ -299,23 +299,6 @@ function App() {
     document.documentElement.style.overflow = '';
   };
 
-  // Button ripple effect
-  const handleButtonClick = (e) => {
-    const button = e.currentTarget;
-    const ripple = document.createElement('span');
-    const rect = button.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const x = e.clientX - rect.left - size / 2;
-    const y = e.clientY - rect.top - size / 2;
-    
-    ripple.style.width = ripple.style.height = size + 'px';
-    ripple.style.left = x + 'px';
-    ripple.style.top = y + 'px';
-    ripple.classList.add('ripple');
-    
-    button.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 600);
-  };
 
   return (
     <>
@@ -373,7 +356,7 @@ function App() {
                 />
               </p>
               <div className="hero-cta">
-                <a className="btn primary large" href="https://github.com/cenkergultekin/berkay-sql-project/releases/tag/v1.2" aria-label="Windows için NIQ'u indirin" target="_blank" rel="noopener noreferrer" onClick={handleButtonClick}>
+                <a className="btn primary large" href="https://github.com/cenkergultekin/berkay-sql-project/releases/tag/v1.2" aria-label="Windows için NIQ'u indirin" target="_blank" rel="noopener noreferrer">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
                     <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/>
                   </svg>
@@ -747,7 +730,7 @@ function App() {
                     Tek zeka katmanı
                   </li>
                 </ul>
-                <button type="button" className="btn ghost block" onClick={handleButtonClick}>
+                <button type="button" className="btn ghost block" onClick={() => openModal('request-modal')}>
                   <span>Talep et</span>
                 </button>
               </article>
@@ -770,7 +753,7 @@ function App() {
                     Sorguları grafiklerle gösterme
                   </li>
                 </ul>
-                <button type="button" className="btn primary block" onClick={handleButtonClick}>
+                <button type="button" className="btn primary block" onClick={() => openModal('request-modal')}>
                   <span>Talep et</span>
                 </button>
               </article>
@@ -796,7 +779,7 @@ function App() {
                     Öncelikli destek
                   </li>
                 </ul>
-                <button type="button" className="btn ghost block" onClick={handleButtonClick}>
+                <button type="button" className="btn ghost block" onClick={() => openModal('request-modal')}>
                   <span>Talep et</span>
                 </button>
               </article>
@@ -1368,6 +1351,42 @@ function App() {
                   onAnimationComplete={handleAnimationComplete}
                 />
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Request Modal */}
+      <div id="request-modal" className={`modal ${activeModal === 'request-modal' ? 'active' : ''}`} aria-hidden={activeModal !== 'request-modal'} role="dialog" aria-labelledby="request-modal-title">
+        <div className="modal-overlay" onClick={closeModal}></div>
+        <div className="modal-content request-modal-content">
+          <button className="modal-close" aria-label="Modal'ı kapat" onClick={closeModal}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          <div className="modal-header">
+            <div className="request-modal-icon">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h2 id="request-modal-title">
+              Teşekkürler!
+            </h2>
+          </div>
+          <div className="modal-body">
+            <div className="modal-text-content">
+              <p style={{ fontSize: '1.125rem', lineHeight: '1.8', textAlign: 'center', marginBottom: '1.5rem' }}>
+                NIQ yakında tüm müşterilerinin ihtiyacını karşılayacaktır. Daha fazla bilgi için destek tarafından bize ulaşabilirsiniz.
+              </p>
+              <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+                <a href="#" onClick={(e) => { e.preventDefault(); closeModal(); openModal('support-modal'); }} className="btn primary">
+                  <span>Destek ile İletişime Geç</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
