@@ -327,7 +327,7 @@ function App() {
         <div className="header-wrapper">
           <div className="container header-inner">
           <a className="brand" href="#hero" aria-label="NIQ anasayfa" onClick={(e) => handleLinkClick(e, 'hero')}>
-            <img src="WhatsApp_Image_2025-12-22_at_14.49.40-removebg-preview.png" alt="NIQ logo" className="brand-logo" loading="lazy" />
+            <img src="/WhatsApp_Image_2025-12-22_at_14.49.40-removebg-preview.png" alt="NIQ logo" className="brand-logo" loading="lazy" />
           </a>
           <button 
             ref={navToggleRef}
