@@ -1,0 +1,70 @@
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  display: inline-block;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.hero-gradient-text {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.gradient-default {
+  background-image: linear-gradient(
+    135deg,
+    #3b9eff 0%,
+    #60d5ff 25%,
+    #8b5cf6 50%,
+    #60d5ff 75%,
+    #3b9eff 100%
+  );
+}
+
+.gradient-text.animate {
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Alternative gradients */
+.gradient-purple-blue {
+  background-image: linear-gradient(
+    135deg,
+    #8b5cf6 0%,
+    #3b9eff 50%,
+    #60d5ff 100%
+  );
+}
+
+.gradient-blue-cyan {
+  background-image: linear-gradient(
+    135deg,
+    #3b9eff 0%,
+    #60d5ff 50%,
+    #00d4ff 100%
+  );
+}
+
+.gradient-rainbow {
+  background-image: linear-gradient(
+    135deg,
+    #ff6b6b 0%,
+    #4ecdc4 25%,
+    #45b7d1 50%,
+    #96ceb4 75%,
+    #ffeaa7 100%
+  );
+}
+
